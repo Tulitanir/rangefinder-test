@@ -49,19 +49,12 @@ void loop()
     buzzerFreq = map(distance, 1, 100, 2000, 200);
 
     display.clearDisplay();
-    if (distance <= THRESHOLD)
-    {
-      display.setTextColor(SSD1306_INVERSE);
-    }
-    else
-    {
-      display.setTextColor(SSD1306_WHITE);
-    }
+    display.setTextColor(SSD1306_WHITE);
     display.setCursor(0, 24);
     display.printf("Dist: %dcm", distance);
     display.display();
 
-    tone(BUZZER_PIN, buzzerFreq, buzzerDelay);
+    tone(BUZZER_PIN, buzzerFreq, 100);
     delay(buzzerDelay);
   }
   else
